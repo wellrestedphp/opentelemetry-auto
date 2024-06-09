@@ -20,6 +20,7 @@ jobs:
           php-version: 8.1
           coverage: none
           tools: composer
+          extensions: opentelemetry
 
       - name: Install composer dependencies
         run: composer update --no-ansi --no-interaction --no-progress
@@ -40,6 +41,7 @@ jobs:
           php-version: 8.1
           coverage: none
           tools: composer
+          extensions: opentelemetry
 
       - name: Install composer dependencies
         run: composer update --no-ansi --no-interaction --no-progress
@@ -68,6 +70,7 @@ jobs:
           ini-values: ${{ env.PHP_INI_VALUES }}
           coverage: xdebug
           tools: composer
+          extensions: opentelemetry
 
       - name: Install composer dependencies
         run: composer update --no-ansi --no-interaction --no-progress
