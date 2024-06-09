@@ -20,11 +20,6 @@ class InstrumentationTest extends TestCase
     private ScopeInterface $scope;
     private ArrayObject $storage;
 
-    public static function setUpBeforeClass(): void
-    {
-        Instrumentation::register();
-    }
-
     public function setUp(): void
     {
         $this->storage = new ArrayObject();

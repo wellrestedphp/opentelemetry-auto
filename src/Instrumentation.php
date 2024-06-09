@@ -22,7 +22,7 @@ use function OpenTelemetry\Instrumentation\hook;
 
 class Instrumentation
 {
-    public const NAMME = 'wellrested';
+    public const NAME = 'wellrested';
 
     public static function register(): void
     {

@@ -29,7 +29,10 @@
     "autoload": {
         "psr-4": {
             "WellRESTed\\Instrumentation\\": "src"
-        }
+        },
+        "files": [
+            "_register.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
