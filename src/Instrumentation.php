@@ -28,6 +28,13 @@ class Instrumentation
     {
         $instrumentation = new CachedInstrumentation('org.wellrested.instrumentation', 'https://opentelemetry.io/schemas/1.25.0');
 
+        /**
+         * The Server hook creates the top level span and attached it to the
+         * request as an attribute. This allows other hooks to reference and update
+         * the root span.
+         *
+         * @psalm-suppress ArgumentTypeCoercion
+         */
         hook(
             \WellRESTed\Server::class,
             'handle',
@@ -40,9 +47,9 @@ class Instrumentation
                 ?int $lineno
             ) use ($instrumentation) {
 
-                /** @var ServerRequestInterface $request */
                 $request = ($params[0] instanceof ServerRequestInterface) ? $params[0] : null;
 
+                /** @psalm-suppress ArgumentTypeCoercion */
                 $builder = $instrumentation->tracer()
                     ->spanBuilder(sprintf('%s', $request?->getMethod() ?? 'unknown'))
                     ->setSpanKind(SpanKind::KIND_SERVER)
@@ -79,7 +86,7 @@ class Instrumentation
                 array $params,
                 ?ResponseInterface $response,
                 ?Throwable $exception
-            ): ResponseInterface {
+            ): ?ResponseInterface {
 
                 $scope = Context::storage()->scope();
                 if (!$scope) {
@@ -105,6 +112,17 @@ class Instrumentation
             }
         );
 
+        /**
+         * Update the root span's named after a route is matched using the
+         * method + route target. The Server hook makes the root span available
+         * to this hook by attaching is a request attribute with the key
+         * SpanInterface::class.
+         *
+         * When the request does not match any routes (e.g., 404 Not Found),
+         * the root span will not be updated.
+         *
+         * @psalm-suppress ArgumentTypeCoercion
+         */
         hook(
             \WellRESTed\Routing\Router::class,
             'dispatch',
