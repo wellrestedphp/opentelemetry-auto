@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "145da9312521567ac1da6a81439e9676",
+    "content-hash": "3fd6b2bef16a276d649c00d795cbdd3b",
     "packages": [
         {
             "name": "open-telemetry/api",
@@ -692,16 +692,16 @@
         },
         {
             "name": "wellrested/wellrested",
-            "version": "dev-server-handler",
+            "version": "v6.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wellrestedphp/wellrested.git",
-                "reference": "919a9bc6c1c8cc2f1cd7d4fae31fdbeb3a3aad74"
+                "reference": "d61d0a0010345fb62258f03259d645bb88c8f0c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wellrestedphp/wellrested/zipball/919a9bc6c1c8cc2f1cd7d4fae31fdbeb3a3aad74",
-                "reference": "919a9bc6c1c8cc2f1cd7d4fae31fdbeb3a3aad74",
+                "url": "https://api.github.com/repos/wellrestedphp/wellrested/zipball/d61d0a0010345fb62258f03259d645bb88c8f0c5",
+                "reference": "d61d0a0010345fb62258f03259d645bb88c8f0c5",
                 "shasum": ""
             },
             "require": {
@@ -750,9 +750,9 @@
             ],
             "support": {
                 "issues": "https://github.com/wellrestedphp/wellrested/issues",
-                "source": "https://github.com/wellrestedphp/wellrested/tree/server-handler"
+                "source": "https://github.com/wellrestedphp/wellrested/tree/v6.1.0"
             },
-            "time": "2024-06-01T00:15:31+00:00"
+            "time": "2024-06-09T22:40:10+00:00"
         }
     ],
     "packages-dev": [
@@ -6293,9 +6293,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "wellrested/wellrested": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
