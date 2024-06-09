@@ -26,6 +26,9 @@
         "symfony/http-client": "^6.4",
         "vimeo/psalm": "^4"
     },
+    "suggest": {
+        "open-telemetry/opentelemetry-auto-psr15": "Instrumentation for standard handlers and middleware"
+    },
     "autoload": {
         "psr-4": {
             "WellRESTed\\Instrumentation\\": "src"
