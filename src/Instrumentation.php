@@ -149,6 +149,11 @@ class Instrumentation
 
                 $span->setAttribute(TraceAttributes::HTTP_ROUTE, $route->getTarget());
                 $span->updateName(sprintf('%s %s', $request->getMethod(), $route->getTarget()));
+
+                if ($exception) {
+                    $span->recordException($exception, [TraceAttributes::EXCEPTION_ESCAPED => true]);
+                    $span->setStatus(StatusCode::STATUS_ERROR, $exception->getMessage());
+                }
             }
         );
     }
