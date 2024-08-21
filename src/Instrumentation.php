@@ -130,7 +130,8 @@ class Instrumentation
             post: static function (
                 \WellRESTed\Routing\Router $router,
                 array $params,
-                ResponseInterface $response
+                ?ResponseInterface $response,
+                ?Throwable $exception
             ) {
                 $route = $params[0];
                 $request = $params[1];
