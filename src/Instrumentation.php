@@ -99,7 +99,7 @@ class Instrumentation
                     $span->setStatus(StatusCode::STATUS_ERROR, $exception->getMessage());
                 }
                 if ($response) {
-                    if ($response->getStatusCode() >= 400) {
+                    if ($response->getStatusCode() >= 500) {
                         $span->setStatus(StatusCode::STATUS_ERROR);
                     }
                     $span->setAttribute(TraceAttributes::HTTP_RESPONSE_STATUS_CODE, $response->getStatusCode());
@@ -113,7 +113,7 @@ class Instrumentation
         );
 
         /**
-         * Update the root span's named after a route is matched using the
+         * Update the root span's name after a route is matched using the
          * method + route target. The Server hook makes the root span available
          * to this hook by attaching is a request attribute with the key
          * SpanInterface::class.
